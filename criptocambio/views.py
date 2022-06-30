@@ -28,8 +28,9 @@ class CriptoView:
 
 
 class CriptoviewTk(ttk.Frame):
-    def __init__(self,padre):
+    def __init__(self,padre,accion):
         super().__init__(padre, width=400, height=400)
+        self.lo_que_hace_el_boton = accion
         self.grid()
         self.crear_controles()
 
@@ -55,14 +56,17 @@ class CriptoviewTk(ttk.Frame):
         self.boton_calcular.grid(row = 3, column= 1)
 
     def moneda_origen(self):
-            return self.origen.get()[:3]
+        return self.origen.get()[:3]
 
     def moneda_destino(self):
-            return self.destino.get()[:3]
+        return self.destino.get()[:3]
 
-    def lo_que_hace_el_boton(self):
-        print("La moneda origen", self.moneda_origen())
-        print("La moneda destino", self.moneda_destino())
+    def mostrar_cambio(self, resultado):
+        valor = "el valor actual es {:,.2f}".format(resultado)
+        self.etiqueta_resultado.config(text=valor)
+    
+    
+    
 
 
 
