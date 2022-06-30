@@ -1,4 +1,4 @@
-from logging import root
+
 from tkinter import *
 from .models import CriptoModel
 from .views import CriptoView, CriptoviewTk
@@ -27,6 +27,9 @@ class CriptoControllerTk(Tk):
     def __init__(self):
         super().__init__()
         self.vista = CriptoviewTk(self)
-        self.modelo =CriptoModel(self)
+        self.modelo =CriptoModel()
 
+
+    def run(self):
+        self.mainloop()
     
